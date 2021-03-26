@@ -1,0 +1,11 @@
+name: MintSMP
+version: ${project.version}
+main: net.badbird5907.mintsmp.MintSMP
+api-version: 1.16
+commands:
+  colorcodes:
+    usage: /<command>
+    description: List of color codes
+  rename:
+    usage: /<command> [name]
+    description: Rename a item
