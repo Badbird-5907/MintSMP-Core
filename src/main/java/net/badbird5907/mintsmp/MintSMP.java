@@ -24,7 +24,6 @@ public final class MintSMP extends JavaPlugin {
         instance = this;
         getCommand("rename").setExecutor(new RenameCommand());
         getCommand("colorcodes").setExecutor(new ColorCodesCommand());
-
     }
 
     @Override
