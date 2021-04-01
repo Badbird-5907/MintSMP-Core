@@ -28,7 +28,7 @@ public class RenameCommand implements CommandExecutor {
                 }
                 String name = ChatColor.translateAlternateColorCodes('&',sb.toString());
                 Player p = ((Player) sender).getPlayer();
-                if(p.getLevel() > 1){
+                if(p.getLevel() >= 1){
                     p.setLevel(p.getLevel()-1);
                     ItemStack currentItem = p.getInventory().getItemInMainHand();
                     ItemMeta meta = currentItem.getItemMeta();
