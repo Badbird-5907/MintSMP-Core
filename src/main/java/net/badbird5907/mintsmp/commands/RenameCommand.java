@@ -18,8 +18,9 @@ public class RenameCommand implements CommandExecutor {
         if(sender instanceof Player){
             if(args.length >= 1){
                 StringBuilder sb = new StringBuilder();
+                int i = -1;
                 for (String arg : args) {
-                    sb.append(" " + arg);
+                    sb.append((i==0)?arg : " " + arg);
                 }
                 if(containsUnicode(sb.toString())){
                     sender.sendMessage(ChatColor.RED + "You may not use unicode!");
