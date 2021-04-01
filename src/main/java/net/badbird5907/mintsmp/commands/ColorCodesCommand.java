@@ -17,10 +17,10 @@ public class ColorCodesCommand implements CommandExecutor {
                         + ChatColor.BLACK + "Black = &0\n"
                         + ChatColor.DARK_GRAY + "Dark Gray = &8\n"
                         + ChatColor.GRAY + "Gray = &7\n"
-                        + ChatColor.DARK_BLUE + "Dark Blue = &1"
-                        + ChatColor.BLUE + "Light Blue / Aqua = &b"
-                        + ChatColor.DARK_PURPLE + "Purple = &5"
-                        + ChatColor.LIGHT_PURPLE + "Light Purple = &d"
+                        + ChatColor.DARK_BLUE + "Dark Blue = &1\n"
+                        + ChatColor.BLUE + "Light Blue / Aqua = &b\n"
+                        + ChatColor.DARK_PURPLE + "Purple = &5\n"
+                        + ChatColor.LIGHT_PURPLE + "Light Purple = &d\n"
                 + ChatColor.GRAY + "You can find a full list here: \nhttps://wiki.ess3.net/mc/\nhttps://www.digminecraft.com/lists/color_list_pc.php"
                 ;
         sender.sendMessage(msg);
