@@ -31,7 +31,7 @@ public class RenameCommand implements CommandExecutor {
                     p.setLevel(p.getLevel()-1);
                     ItemStack currentItem = p.getInventory().getItemInMainHand();
                     ItemMeta meta = currentItem.getItemMeta();
-                    meta.setDisplayName(name);
+                    meta.setDisplayName(name.replaceAll("\\n","\n"));
                     p.getInventory().getItemInMainHand().setItemMeta(meta);
                     p.sendMessage(ChatColor.GREEN + "Set your item name to: " + name);
                 }else{
