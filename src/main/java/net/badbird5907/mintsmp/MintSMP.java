@@ -2,8 +2,10 @@ package net.badbird5907.mintsmp;
 
 import com.google.gson.Gson;
 import lombok.Getter;
+import net.badbird5907.mintsmp.bedrock.IsPlayerOutside;
 import net.badbird5907.mintsmp.commands.ColorCodesCommand;
 import net.badbird5907.mintsmp.commands.RenameCommand;
+import net.badbird5907.mintsmp.listeners.ThornsFix;
 import net.badbird5907.mintsmp.team.User;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -24,6 +26,8 @@ public final class MintSMP extends JavaPlugin {
         instance = this;
         getCommand("rename").setExecutor(new RenameCommand());
         getCommand("colorcodes").setExecutor(new ColorCodesCommand());
+        Bukkit.getServer().getPluginManager().registerEvents(new IsPlayerOutside(),this);
+        Bukkit.getServer().getPluginManager().registerEvents(new ThornsFix(),this);
     }
 
     @Override

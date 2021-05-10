@@ -1,6 +1,7 @@
 package net.badbird5907.mintsmp.commands;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -20,7 +21,7 @@ public class RenameCommand implements CommandExecutor {
                 StringBuilder sb = new StringBuilder();
                 int i = -1;
                 for (String arg : args) {
-                    sb.append((i==0)?arg : " " + arg);
+                    sb.append((i == 0) ? arg : " " + arg);
                 }
                 if(containsUnicode(sb.toString())){
                     sender.sendMessage(ChatColor.RED + "You may not use unicode!");
@@ -29,10 +30,14 @@ public class RenameCommand implements CommandExecutor {
                 String name = ChatColor.translateAlternateColorCodes('&',sb.toString());
                 Player p = ((Player) sender).getPlayer();
                 if(p.getLevel() >= 1){
-                    p.setLevel(p.getLevel()-1);
+                    p.setLevel(p.getLevel() - 1);
                     ItemStack currentItem = p.getInventory().getItemInMainHand();
+                    if(currentItem == null || currentItem.getType().name().toLowerCase().contains("air")){
+                        p.sendMessage(ChatColor.RED + "You need to hold something to rename!");
+                        return true;
+                    }
                     ItemMeta meta = currentItem.getItemMeta();
-                    meta.setDisplayName(name.replaceAll("\\n","\n"));
+                    meta.setDisplayName(name);
                     p.getInventory().getItemInMainHand().setItemMeta(meta);
                     p.sendMessage(ChatColor.GREEN + "Set your item name to: " + name);
                 }else{
