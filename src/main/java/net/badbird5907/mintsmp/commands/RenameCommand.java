@@ -21,7 +21,12 @@ public class RenameCommand implements CommandExecutor {
                 StringBuilder sb = new StringBuilder();
                 int i = -1;
                 for (String arg : args) {
-                    sb.append((i == 0) ? arg : " " + arg);
+                    i++;
+                    if(i == 0){
+                        sb.append(arg);
+                    }else{
+                        sb.append(" " + arg);
+                    }
                 }
                 if(containsUnicode(sb.toString())){
                     sender.sendMessage(ChatColor.RED + "You may not use unicode!");
